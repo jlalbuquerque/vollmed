@@ -1,0 +1,37 @@
+package med.voll.api.model.medico;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import med.voll.api.model.Endereco;
+import med.voll.api.model.Especialidade;
+
+import java.util.UUID;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@EqualsAndHashCode(of = "id")
+@Table(name = "medicos")
+@Entity(name = "Medico")
+public class Medico {
+    @Id @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
+    private String nome;
+    private String email;
+    private String crm;
+    @Enumerated(EnumType.STRING)
+    private Especialidade especialidade;
+    @Embedded
+    private Endereco endereco;
+
+    public Medico(DadosCadastroMedico dados) {
+        this.nome = dados.nome();
+        this.email = dados.email();
+        this.crm = dados.crm();
+        this.especialidade = dados.especialidade();
+        this.endereco = new Endereco(dados.endereco());
+    }
+}
