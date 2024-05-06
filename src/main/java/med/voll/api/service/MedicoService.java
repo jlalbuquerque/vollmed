@@ -17,16 +17,8 @@ public class MedicoService {
     }
 
     public void cadastrarMedico(DadosCadastroMedico dados) {
-        medicoRepository.save(new Medico(null, dados.nome(), dados.email(), dados.crm(), dados.especialidade(),
-                new Endereco(
-                        dados.endereco().logradouro(),
-                        dados.endereco().bairro(),
-                        dados.endereco().cep(),
-                        dados.endereco().numero(),
-                        dados.endereco().complemento(),
-                        dados.endereco().cidade(),
-                        dados.endereco().uf())
-                )
-        );
+        Medico medico = new Medico(dados);
+
+        medicoRepository.save(medico);
     }
 }
