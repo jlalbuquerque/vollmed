@@ -39,6 +39,7 @@ public class MedicoRepositoryTest {
         DadosCadastroMedico dados = new DadosCadastroMedico(
                 "Pedro Santos",
                 "pedro.2004@gmail.com",
+                "+55999812312",
                 "123457",
                 Especialidade.CARDIOLOGIA,
                 dadosEnd

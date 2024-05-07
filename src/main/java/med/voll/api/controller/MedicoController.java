@@ -1,5 +1,6 @@
 package med.voll.api.controller;
 
+import jakarta.validation.Valid;
 import med.voll.api.model.medico.DadosCadastroMedico;
 import med.voll.api.service.MedicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,7 @@ public class MedicoController {
     }
 
     @PostMapping
-    public void cadastrarMedico(@RequestBody DadosCadastroMedico dados) {
+    public void cadastrarMedico(@RequestBody @Valid DadosCadastroMedico dados) {
         medicoService.cadastrarMedico(dados);
     }
 }
