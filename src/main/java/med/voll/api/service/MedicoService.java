@@ -48,4 +48,8 @@ public class MedicoService {
     public void removerPorId(UUID id) {
         medicoRepository.deleteById(id);
     }
+
+    public Medico detalhar(UUID id) {
+        return medicoRepository.findById(id).get();
+    }
 }

@@ -45,10 +45,15 @@ public class MedicoController {
         return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 
-    @DeleteMapping
-    public ResponseEntity excluir(@RequestParam UUID id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity excluir(@PathVariable UUID id) {
         medicoService.removerPorId(id);
-
         return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity detalhar(@PathVariable UUID id) {
+        Medico medico = medicoService.detalhar(id);
+        return ResponseEntity.ok(new DadosDetalhamentoMedico(medico));
     }
 }

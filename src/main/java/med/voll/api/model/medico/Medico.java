@@ -44,5 +44,6 @@ public class Medico {
         if (dados.telefone() != null) telefone = dados.telefone();
         if (dados.endereco() != null) endereco.atualizarInformacoes(dados.endereco());
         if (dados.email() != null) email = dados.email();
+        if (dados.especialidade() != null) especialidade = dados.especialidade();
     }
 }
