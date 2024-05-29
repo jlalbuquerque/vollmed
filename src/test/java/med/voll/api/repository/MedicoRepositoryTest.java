@@ -1,6 +1,6 @@
 package med.voll.api.repository;
 
-import med.voll.api.model.DadosEndereco;
+import med.voll.api.model.endereco.DadosEndereco;
 import med.voll.api.model.medico.Especialidade;
 import med.voll.api.model.medico.DadosCadastroMedico;
 import med.voll.api.model.medico.Medico;
