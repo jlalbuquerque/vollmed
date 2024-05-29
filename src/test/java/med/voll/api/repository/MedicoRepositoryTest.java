@@ -1,9 +1,9 @@
 package med.voll.api.repository;
 
-import med.voll.api.model.endereco.DadosEndereco;
-import med.voll.api.model.medico.Especialidade;
-import med.voll.api.model.medico.DadosCadastroMedico;
-import med.voll.api.model.medico.Medico;
+import med.voll.api.domain.endereco.DadosEndereco;
+import med.voll.api.domain.medico.Especialidade;
+import med.voll.api.domain.medico.DadosCadastroMedico;
+import med.voll.api.domain.medico.Medico;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

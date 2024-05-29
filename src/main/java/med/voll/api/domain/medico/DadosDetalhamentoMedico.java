@@ -1,6 +1,6 @@
-package med.voll.api.model.medico;
+package med.voll.api.domain.medico;
 
-import med.voll.api.model.endereco.Endereco;
+import med.voll.api.domain.endereco.Endereco;
 
 import java.util.UUID;
 

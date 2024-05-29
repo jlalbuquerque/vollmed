@@ -1,10 +1,10 @@
 package med.voll.api.service;
 
 import jakarta.validation.Valid;
-import med.voll.api.model.medico.DadosAtualizacaoMedico;
-import med.voll.api.model.medico.DadosCadastroMedico;
-import med.voll.api.model.medico.DadosListagemMedico;
-import med.voll.api.model.medico.Medico;
+import med.voll.api.domain.medico.DadosAtualizacaoMedico;
+import med.voll.api.domain.medico.DadosCadastroMedico;
+import med.voll.api.domain.medico.DadosListagemMedico;
+import med.voll.api.domain.medico.Medico;
 import med.voll.api.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

@@ -1,7 +1,7 @@
 package med.voll.api.service;
 
 import jakarta.validation.Valid;
-import med.voll.api.model.paciente.*;
+import med.voll.api.domain.paciente.*;
 import med.voll.api.repository.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
