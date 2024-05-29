@@ -27,9 +27,9 @@ public class MedicoRepositoryTest {
 
     @Test
     public void whenSave_thenFindById() {
-        DadosEndereco dadosEnd = new DadosEndereco(
+        DadosEndereco dadosAddr = new DadosEndereco(
                 "Rua eu sou demais Ferreira Silva",
-                "Bairro Botafogo Futebol Clube",
+                "Botafogo Futebol Clube",
                 "76864909",
                 "Rio de Janeiro",
                 "RJ",
@@ -38,11 +38,11 @@ public class MedicoRepositoryTest {
         );
         DadosCadastroMedico dados = new DadosCadastroMedico(
                 "Pedro Santos",
-                "pedro.2004@gmail.com",
+                "pedro.2004@voll.med",
                 "+55999812312",
                 "123457",
                 Especialidade.CARDIOLOGIA,
-                dadosEnd
+                dadosAddr
         );
 
         Medico medico = new Medico(dados);
