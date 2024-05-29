@@ -1,7 +1,5 @@
 package med.voll.api.model.medico;
 
-import med.voll.api.model.Especialidade;
-
 import java.util.UUID;
 
 public record DadosListagemMedico(

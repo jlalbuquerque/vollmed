@@ -1,17 +1,16 @@
-package med.voll.api.model.medico;
+package med.voll.api.model.paciente;
 
 import jakarta.validation.constraints.NotNull;
 import med.voll.api.model.DadosEndereco;
 
 import java.util.UUID;
 
-public record DadosAtualizacaoMedico(
+public record DadosAtualizacaoPaciente(
         @NotNull
         UUID id,
         String nome,
-        String telefone,
-        DadosEndereco endereco,
         String email,
-        Especialidade especialidade
+        String telefone,
+        DadosEndereco endereco
 ) {
 }

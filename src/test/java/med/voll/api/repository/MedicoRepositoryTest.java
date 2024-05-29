@@ -1,7 +1,7 @@
 package med.voll.api.repository;
 
 import med.voll.api.model.DadosEndereco;
-import med.voll.api.model.Especialidade;
+import med.voll.api.model.medico.Especialidade;
 import med.voll.api.model.medico.DadosCadastroMedico;
 import med.voll.api.model.medico.Medico;
 import org.assertj.core.api.Assertions;

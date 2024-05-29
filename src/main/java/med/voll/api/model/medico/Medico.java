@@ -6,7 +6,6 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.model.Endereco;
-import med.voll.api.model.Especialidade;
 
 import java.util.UUID;
 
