@@ -33,7 +33,7 @@ public class Medico {
         this.email = dados.email();
         this.telefone = dados.telefone();
         this.crm = dados.crm();
-        this.especialidade = dados.especialidade();
+        this.especialidade = Especialidade.of(dados.especialidade());
         this.endereco = new Endereco(dados.endereco());
         this.ativo = true;
     }
@@ -43,6 +43,6 @@ public class Medico {
         if (dados.telefone() != null) telefone = dados.telefone();
         if (dados.endereco() != null) endereco.atualizarInformacoes(dados.endereco());
         if (dados.email() != null) email = dados.email();
-        if (dados.especialidade() != null) especialidade = dados.especialidade();
+        if (dados.especialidade() != null) especialidade = Especialidade.of(dados.especialidade());
     }
 }

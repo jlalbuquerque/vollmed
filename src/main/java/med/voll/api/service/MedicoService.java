@@ -1,16 +1,14 @@
 package med.voll.api.service;
 
 import jakarta.validation.Valid;
-import med.voll.api.domain.medico.DadosAtualizacaoMedico;
-import med.voll.api.domain.medico.DadosCadastroMedico;
-import med.voll.api.domain.medico.DadosListagemMedico;
-import med.voll.api.domain.medico.Medico;
+import med.voll.api.domain.medico.*;
 import med.voll.api.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.MethodArgumentNotValidException;
 
 import java.util.UUID;
 
@@ -38,6 +36,8 @@ public class MedicoService {
 
     @Transactional
     public Medico atualizar(@Valid DadosAtualizacaoMedico dados) {
+
+
         Medico medico = medicoRepository.getReferenceById(dados.id());
         medico.atualizarInformacoes(dados);
 

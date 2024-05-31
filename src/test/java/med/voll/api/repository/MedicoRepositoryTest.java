@@ -41,7 +41,7 @@ public class MedicoRepositoryTest {
                 "pedro.2004@voll.med",
                 "+55999812312",
                 "123457",
-                Especialidade.CARDIOLOGIA,
+                "CARDIOLOGIA",
                 dadosAddr
         );
 
