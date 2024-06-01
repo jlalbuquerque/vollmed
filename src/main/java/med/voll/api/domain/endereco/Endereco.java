@@ -27,7 +27,7 @@ public class Endereco {
         this.bairro = dadosEnd.bairro().strip();
         this.cep = dadosEnd.cep().strip();
         this.numero = dadosEnd.numero().strip();
-        this.complemento = dadosEnd.complemento().strip();
+        this.complemento = this.complemento != null ? dadosEnd.complemento().strip() : null;
         this.cidade = dadosEnd.cidade().strip();
         this.uf = dadosEnd.uf().strip().toUpperCase(Locale.ROOT);
     }
