@@ -23,7 +23,7 @@ public class LanguageConfig {
     public MessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 
-        messageSource.setBasenames("classpath:paciente/messages", "classpath:medico/messages");
+        messageSource.setBasenames("classpath:messages", "classpath:paciente/messages", "classpath:medico/messages", "classpath:endereco/messages");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }

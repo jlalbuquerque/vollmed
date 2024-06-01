@@ -19,8 +19,10 @@ public class Medico {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
     private String nome;
+    @Column(unique = true)
     private String email;
     private String telefone;
+    @Column(unique = true)
     private String crm;
     @Enumerated(EnumType.STRING)
     private Especialidade especialidade;
@@ -29,20 +31,20 @@ public class Medico {
     private Boolean ativo;
 
     public Medico(DadosCadastroMedico dados) {
-        this.nome = dados.nome();
-        this.email = dados.email();
-        this.telefone = dados.telefone();
-        this.crm = dados.crm();
+        this.nome = dados.nome().strip();
+        this.email = dados.email().strip();
+        this.telefone = dados.telefone().strip();
+        this.crm = dados.crm().strip();
         this.especialidade = Especialidade.of(dados.especialidade());
         this.endereco = new Endereco(dados.endereco());
         this.ativo = true;
     }
 
     public void atualizarInformacoes(DadosAtualizacaoMedico dados) {
-        if (dados.nome() != null) nome = dados.nome();
-        if (dados.telefone() != null) telefone = dados.telefone();
+        if (dados.nome() != null) nome = dados.nome().strip();
+        if (dados.telefone() != null) telefone = dados.telefone().strip();
         if (dados.endereco() != null) endereco.atualizarInformacoes(dados.endereco());
-        if (dados.email() != null) email = dados.email();
+        if (dados.email() != null) email = dados.email().strip();
         if (dados.especialidade() != null) especialidade = Especialidade.of(dados.especialidade());
     }
 }

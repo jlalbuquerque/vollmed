@@ -15,6 +15,4 @@ public @interface ValidEspecialidade {
     Class<?>[] groups() default {};
 
     Class<? extends Payload>[] payload() default {};
-
-    boolean required() default true;
 }

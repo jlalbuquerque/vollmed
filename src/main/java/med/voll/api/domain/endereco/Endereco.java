@@ -6,6 +6,8 @@ import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Locale;
+
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
@@ -21,22 +23,22 @@ public class Endereco {
     private String uf;
 
     public Endereco(DadosEndereco dadosEnd) {
-        this.logradouro = dadosEnd.logradouro();
-        this.bairro = dadosEnd.bairro();
-        this.cep = dadosEnd.cep();
-        this.numero = dadosEnd.numero();
-        this.complemento = dadosEnd.complemento();
-        this.cidade = dadosEnd.cidade();
-        this.uf = dadosEnd.uf();
+        this.logradouro = dadosEnd.logradouro().strip();
+        this.bairro = dadosEnd.bairro().strip();
+        this.cep = dadosEnd.cep().strip();
+        this.numero = dadosEnd.numero().strip();
+        this.complemento = dadosEnd.complemento().strip();
+        this.cidade = dadosEnd.cidade().strip();
+        this.uf = dadosEnd.uf().strip().toUpperCase(Locale.ROOT);
     }
 
     public void atualizarInformacoes(DadosEndereco endereco) {
-        if (endereco.logradouro() != null) logradouro = endereco.logradouro();
-        if (endereco.bairro() != null) bairro = endereco.bairro();
-        if (endereco.cep() != null) cep = endereco.cep();
-        if (endereco.numero() != null) numero = endereco.numero();
-        if (endereco.complemento() != null) complemento = endereco.complemento();
-        if (endereco.cidade() != null) cidade = endereco.cidade();
-        if (endereco.uf() != null) uf = endereco.uf();
+        if (endereco.logradouro() != null) logradouro = endereco.logradouro().strip();
+        if (endereco.bairro() != null) bairro = endereco.bairro().strip();
+        if (endereco.cep() != null) cep = endereco.cep().strip();
+        if (endereco.numero() != null) numero = endereco.numero().strip();
+        if (endereco.complemento() != null) complemento = endereco.complemento().strip();
+        if (endereco.cidade() != null) cidade = endereco.cidade().strip();
+        if (endereco.uf() != null) uf = endereco.uf().strip().toUpperCase(Locale.ROOT);
     }
 }

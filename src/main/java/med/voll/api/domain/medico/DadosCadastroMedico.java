@@ -9,17 +9,17 @@ import med.voll.api.domain.endereco.DadosEndereco;
 import med.voll.api.validation.ValidEspecialidade;
 
 public record DadosCadastroMedico(
-        @NotBlank(message = "{medico.nome.vazio}")
+        @NotBlank(message = "{medico.nome.vazio}") @Pattern(regexp = "([a-zA-Z]|\\s)+", message = "{medico.nome.invalido}")
         String nome,
         @NotBlank(message = "{medico.email.vazio}") @Email(message = "{medico.email.invalido}")
         String email,
-        @NotBlank(message = "{medico.telefone.vazio}")
+        @NotBlank(message = "{medico.telefone.vazio}") @Pattern(regexp = "\\d{10,11}", message = "{medico.telefone.invalido}")
         String telefone,
         @NotBlank(message = "{medico.crm.vazio}") @Pattern(regexp = "\\d{4,6}", message = "{medico.crm.invalido}")
         String crm,
         @NotNull(message = "{medico.especialidade.vazia}") @ValidEspecialidade
         String especialidade,
-        @NotNull @Valid
+        @NotNull(message = "{endereco.null}") @Valid
         DadosEndereco endereco
 ) {
 }
