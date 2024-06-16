@@ -1,7 +1,6 @@
 package med.voll.api.infra;
 
 import jakarta.persistence.EntityNotFoundException;
-import med.voll.api.util.DatabaseParser;
 import med.voll.api.validation.DadosErroValidacao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
