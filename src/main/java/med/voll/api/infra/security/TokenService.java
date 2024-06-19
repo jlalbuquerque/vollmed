@@ -22,20 +22,19 @@ import java.util.Locale;
 public class TokenService {
 
     private final MessageSource messageSource;
-    private final LocaleResolver localeResolver;
 
     @Value("${api.security.token.secret}")
     private String secret;
+    private final String ISSUER = "API voll.med";
 
     public TokenService(MessageSource messageSource, LocaleResolver localeResolver) {
         this.messageSource = messageSource;
-        this.localeResolver = localeResolver;
     }
 
     public String generateToken(User user) {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         return JWT.create()
-                .withIssuer("API voll.med")
+                .withIssuer(ISSUER)
                 .withSubject(user.getLogin())
                 .withExpiresAt(expireDate())
                 .sign(algorithm);
@@ -44,7 +43,7 @@ public class TokenService {
     public String getSubject(String token) {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         return JWT.require(algorithm)
-                .withIssuer("API voll.med")
+                .withIssuer(ISSUER)
                 .build()
                 .verify(token)
                 .getSubject();
@@ -52,7 +51,7 @@ public class TokenService {
 
     public void validateToken(String token, HttpServletRequest request) throws InvalidTokenException {
         Algorithm algorithm = Algorithm.HMAC256(secret);
-        Locale locale = localeResolver.resolveLocale(request);
+        Locale locale = request.getLocale();
         String errorMessage;
 
         try {

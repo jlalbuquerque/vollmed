@@ -17,6 +17,8 @@ import java.time.Clock;
 import java.time.Instant;
 import java.time.ZoneId;
 
+import static med.voll.api.util.Jsoniffier.toJson;
+
 @Component
 public class DefaultAccessDeniedHandler implements AccessDeniedHandler {
 
@@ -32,6 +34,6 @@ public class DefaultAccessDeniedHandler implements AccessDeniedHandler {
         response.setStatus(HttpServletResponse.SC_FORBIDDEN);
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
-        response.getWriter().write(info.toString());
+        response.getWriter().write(toJson(info));
     }
 }

@@ -1,26 +1,29 @@
 package med.voll.api.service;
 
+import jakarta.persistence.EntityNotFoundException;
+import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import med.voll.api.domain.medico.*;
 import med.voll.api.repository.MedicoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.context.MessageSource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.servlet.LocaleResolver;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.UUID;
 
 @Service
 public class MedicoService {
-    MedicoRepository medicoRepository;
+    private final MessageSource messageSource;
+    private final MedicoRepository medicoRepository;
 
     @Autowired
-    public MedicoService(MedicoRepository medicoRepository) {
+    public MedicoService(MedicoRepository medicoRepository, MessageSource messageSource, LocaleResolver localeResolver) {
         this.medicoRepository = medicoRepository;
+        this.messageSource = messageSource;
     }
 
     @Transactional
@@ -47,8 +50,9 @@ public class MedicoService {
         medicoRepository.deleteById(id);
     }
 
-    @SuppressWarnings("OptionalGetWithoutIsPresent")
-    public Medico detalhar(UUID id) {
-        return medicoRepository.findById(id).get();
+    public Medico detalhar(UUID id, HttpServletRequest req) {
+        return medicoRepository.findById(id).orElseThrow(() -> new EntityNotFoundException(
+                messageSource.getMessage("medico.notfound", null, req.getLocale())
+        ));
     }
 }
